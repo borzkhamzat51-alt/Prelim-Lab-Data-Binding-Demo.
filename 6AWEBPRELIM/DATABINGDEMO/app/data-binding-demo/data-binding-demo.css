@@ -1,0 +1,82 @@
+/* --- Global Reset & Spacing --- */
+
+:host {
+  display: block; /* Ensures the component takes up its own block of space */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto; /* Centers the component on the page */
+}
+
+/* --- Section Styling (Makes the output easier to read) --- */
+
+h1, h3 {
+  color: #3f51b5; /* Angular Primary Color */
+}
+
+/* Add margin below sections for visual separation */
+h3, p, img, input, button {
+  margin-bottom: 15px;
+}
+
+/* --- Property Binding (Image) --- */
+
+img {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: block; /* Ensures image is on its own line */
+}
+
+/* --- Style Binding --- */
+
+/* The color will be set dynamically by [style.color]="textColor" */
+p:nth-of-type(1) {
+  font-weight: bold;
+}
+
+/* --- Class Binding --- */
+
+/* This is the key styling based on your request */
+.highlighted {
+  /* Set the background for the class-bound element when 'isHighlighted' is true */
+  background-color: yellow;
+  padding: 5px 10px;
+  display: inline-block; /* Helps yellow background wrap the text neatly */
+  border-radius: 4px;
+}
+
+/* --- Two-Way Data Binding (Input) --- */
+
+input {
+  padding: 8px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  width: 250px;
+  display: block;
+}
+
+/* --- Event Binding (Buttons) --- */
+
+button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  background-color: #f50057; /* Angular Secondary Color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #c51162;
+}
+
+/* Style for the Count output */
+p:last-of-type {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #00897b;
+}
