@@ -1,0 +1,113 @@
+<div class="container">
+
+  <div class="card">
+    <h3 class="section-title">Static Note</h3>
+    <div class="content">
+      @if (isStaticNoteVisible === true) {
+        <p class="note success">This is a static note with true value!</p>
+      } @else {
+        <p class="note danger">This static note has false value.</p>
+      }
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Show / Hide Note</h3>
+
+    <div class="content">
+      @if (isNoteVisible === true) {
+        <p class="note info">This is a note</p>
+      }
+
+      <button class="btn primary" (click)="showNote()">Show</button>
+      <button class="btn danger" (click)="hideNote()">Hide</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Toggle Paragraph</h3>
+
+    <button class="btn toggle" (click)="toggleNote()">
+      {{ isParagraphVisible ? 'Hide' : 'Show' }}
+    </button>
+
+    @if (isParagraphVisible) {
+      <p class="paragraph">This is the paragraph content.</p>
+    }
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Static Month Display</h3>
+
+    <div class="month-display">
+      @if (monthNameStatic == 'Jan') {
+        <span class="month-badge">January</span>
+      } @else if (monthNameStatic == 'Feb') {
+        <span class="month-badge">February</span>
+      } @else if (monthNameStatic == 'Mar') {
+        <span class="month-badge">March</span>
+      }
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Dynamic Month Input</h3>
+
+    <input class="input-field" type="text" [(ngModel)]="monthNameDynamic" placeholder="Enter month">
+
+    <div class="month-display">
+      @if (monthNameDynamic == 'Jan') {
+        <span class="month-badge">January</span>
+      } @else if (monthNameDynamic == 'Feb') {
+        <span class="month-badge">February</span>
+      } @else if (monthNameDynamic == 'Mar') {
+        <span class="month-badge">March</span>
+      } @else {
+        <span class="month-error">Wrong Input!</span>
+      }
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">City List</h3>
+
+    <ul class="list">
+      @for (item of cityList; track $index) {
+        <li class="list-item">{{ item }}</li>
+      }
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Students</h3>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (item of studentList; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ item.stud_name }}</td>
+            <td>{{ item.course }}</td>
+            <td>
+              @if (item.isActive) {
+                <span class="status active">Active</span>
+              } @else {
+                <span class="status inactive">Inactive</span>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
